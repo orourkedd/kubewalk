@@ -13,7 +13,8 @@ import (
 )
 
 func main() {
-	envs := []string{"test", "staging", "demo", "integration"}
+	envs := []string{"test", "staging", "demo", "integration", "infraprelive"}
+	// envs := []string{"live", "infralive"}
 	configPath := filepath.Join(homeDir(), ".kube", "config")
 
 	// Out-of-cluster config
@@ -55,7 +56,7 @@ func main() {
 			panic(err)
 		}
 
-		fmt.Println(fmt.Sprintf("Updated: [%s] %s - %s", ing.Namespace, ing.Name, annotation))
+		fmt.Println(fmt.Sprintf("[%s] %s - %s", ing.Namespace, ing.Name, annotation))
 	}
 }
 
